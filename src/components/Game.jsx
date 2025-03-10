@@ -17,18 +17,20 @@ const Game = ({status, start, fly}) => {
   }
 
   useEffect(() => {
-    const handleKeyPress = (e) => {
-      if (e.keyCode === 32) {
-        fly()
-      }
-
-      if (status !== 'playing') {
-        start()
-      }
-    }
-
-    document.addEventListener('keypress', handleKeyPress)
-  }, [])
+    const handleAction = () => {
+      fly();
+      if (status !== 'playing') start();
+    };
+  
+    document.addEventListener('pointerdown', handleAction);
+    document.addEventListener('keypress', handleAction);
+  
+    return () => {
+      document.removeEventListener('pointerdown', handleAction);
+      document.removeEventListener('keypress', handleAction);
+    };
+  }, [status, start, fly]);
+  
 
   return (
     <div
