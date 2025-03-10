@@ -26,4 +26,4 @@ If you are developing a production application, we recommend using TypeScript an
 
 Below is a preview of the game in action:
 
-![Flappy Bird Preview](public/images/flappybird.jpeg)
+![Flappy Bird Preview](public/flappybird.jpeg)
